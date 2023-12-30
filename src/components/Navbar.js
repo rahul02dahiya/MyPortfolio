@@ -4,14 +4,36 @@ import { AiFillInstagram } from 'react-icons/ai';
 import { HiOutlineMail } from 'react-icons/hi'
 import { BsFillPersonLinesFill } from 'react-icons/bs'
 import logo from "../mediaFiles/me.png"
-
-import { Link, useLocation } from 'react-router-dom'
+import resume from "../mediaFiles/resume.pdf"
 
 const Navbar = () => {
 
   const [ham, setHam] = useState(false);
 
   const handleHamClick = () => setHam(!ham)
+
+  const handleDownload = () => {
+    
+    const resumeUrl = resume;
+
+    // Create a temporary anchor element
+    const downloadLink = document.createElement("a");
+
+    // Set the href attribute to the file URL
+    downloadLink.href = resumeUrl;
+
+    // Setting up the download attribute with the desired file name
+    downloadLink.download = "RahulResume.pdf";
+
+    // Append the anchor element to the document
+    document.body.appendChild(downloadLink);
+
+    // Trigger a click event on the anchor element
+    downloadLink.click();
+
+    // Remove the anchor element from the document
+    document.body.removeChild(downloadLink);
+  };
 
   return (
     <>
@@ -23,10 +45,11 @@ const Navbar = () => {
         {/* Menu for widescreen */}
 
         <ul className='hidden md:flex'>
-          <li>Home</li>
-          <li>About</li>
-          <li>Skills</li>
-          <li>ContactUs</li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
 
         {/* Hamburger for mobile*/}
@@ -48,35 +71,34 @@ const Navbar = () => {
           <ul>
             <li className='w-[160px] h-[60px] bg-[#5dce9f] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
               <a className='flex justify-between items-center w-full text-gray-200 '
-                href="#">
+                href="#contact">
                 Email <HiOutlineMail size={30} />
               </a>
             </li>
 
             <li className='w-[160px] h-[60px] bg-[#0077b5] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
               <a className='flex justify-between items-center w-full text-gray-200'
-                href="#">
+                href="https://www.linkedin.com/in/rahul-dahiya-279720220/" target="_blank">
                 LinkedIn <FaLinkedin size={30} />
               </a>
             </li>
 
             <li className='w-[160px] h-[60px] bg-[#333333] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
               <a className='flex justify-between items-center w-full text-gray-200'
-                href="#">
+                href="https://github.com/rahul02dahiya" target="_blank">
                 GitHub <FaGithub size={30} />
               </a>
             </li>
 
             <li className='w-[160px] h-[60px] bg-[#ff436c] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
               <a className='flex justify-between items-center w-full text-gray-200'
-                href="#">
+                href="https://www.instagram.com/rddahiya3/" target="_blank">
                 Instagram <AiFillInstagram size={30} />
               </a>
             </li>      
 
-            <li className='w-[160px] h-[60px] bg-[#ffffff20] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-              <a className='flex justify-between items-center w-full text-gray-200'
-                href="#">
+            <li onClick={handleDownload} className='w-[160px] h-[60px] bg-[#ffffff20] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
+              <a className='flex justify-between items-center w-full text-gray-200'>
                 Resume <BsFillPersonLinesFill size={30} />
               </a>
             </li>      
