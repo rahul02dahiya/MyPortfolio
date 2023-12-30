@@ -3,7 +3,7 @@ import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa"
 import { AiFillInstagram } from 'react-icons/ai';
 import { HiOutlineMail } from 'react-icons/hi'
 import { BsFillPersonLinesFill } from 'react-icons/bs'
-import logo from "../mediaFiles/logo.jfif"
+import logo from "../mediaFiles/me.png"
 
 import { Link, useLocation } from 'react-router-dom'
 
