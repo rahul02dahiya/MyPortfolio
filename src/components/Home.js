@@ -1,9 +1,11 @@
 import React from 'react'
-import "../styleSheets/home.css"
+import { HiArrowNarrowRight } from "react-icons/hi"
 
 const Home = () => {
   return (
-    <div className='home'>Home</div>
+    <div className='w-full h-screen bg-[#0a192f]'>
+      Home
+    </div>
   )
 }
 
